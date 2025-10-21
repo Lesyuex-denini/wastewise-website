@@ -23,7 +23,8 @@ export default function AnalyticsDashboard() {
     useEffect(() => {
         async function fetchAnalytics() {
             try {
-                const res = await fetch("http://127.0.0.1:8000/api/analytics/");
+                const api = import.meta.env.VITE_API_BASE_URL;
+                const res = await fetch(`${api}/api/analytics/`);
                 if (!res.ok) throw new Error("Network response was not ok");
                 const json = await res.json();
                 setData(json.data);
@@ -40,6 +41,7 @@ export default function AnalyticsDashboard() {
         const interval = setInterval(fetchAnalytics, 50000);
         return () => clearInterval(interval);
     }, []);
+
 
     useEffect(() => {
         if (!lastUpdated) return;
