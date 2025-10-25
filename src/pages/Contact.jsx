@@ -7,6 +7,7 @@ import emailjs from "emailjs-com";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { Download } from "lucide-react";
 
 const customIcon = new L.Icon({
     iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
@@ -187,7 +188,7 @@ export default function Contact() {
                     {/* === Download Button === */}
                     <motion.button
                         onClick={handleDownload}
-                        className="relative mt-4 px-6 py-2 text-base font-semibold text-[#145B18] rounded-full overflow-hidden z-20"
+                        className="relative mt-4 px-6 py-2 text-base font-semibold text-[#145B18] rounded-full flex items-center justify-center gap-2 overflow-hidden z-20"
                         style={{
                             background: "linear-gradient(145deg, #CDE4C1 0%, #E2F0D9 100%)",
                             boxShadow:
@@ -217,6 +218,7 @@ export default function Contact() {
                                 backgroundSize: "200px 200px",
                             }}
                         />
+
                         <motion.span
                             className="absolute inset-0 rounded-full"
                             initial={{ boxShadow: "0 0 0px rgba(20,91,24,0)" }}
@@ -226,6 +228,7 @@ export default function Contact() {
                             }}
                             transition={{ duration: 0.3 }}
                         />
+
                         <motion.span
                             className="absolute top-0 left-[-90%] w-[60%] h-full bg-white/30 skew-x-[-20deg]"
                             whileHover={{
@@ -233,8 +236,10 @@ export default function Contact() {
                                 transition: { duration: 0.9, ease: "easeInOut" },
                             }}
                         />
-                        <span className="relative z-20 tracking-wide drop-shadow-sm select-none">
+
+                        <span className="relative z-20 tracking-wide drop-shadow-sm select-none flex items-center gap-2">
                             Download Now
+                            <Download size={20} className="text-[#145B18]" />
                         </span>
                     </motion.button>
 
