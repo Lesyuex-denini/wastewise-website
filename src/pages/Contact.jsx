@@ -238,7 +238,7 @@ export default function Contact() {
                         />
 
                         <span className="relative z-20 tracking-wide drop-shadow-sm select-none flex items-center gap-2">
-                            Download Now
+                            Download WasteWise
                             <Download size={20} className="text-[#145B18]" />
                         </span>
                     </motion.button>
