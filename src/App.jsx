@@ -1,4 +1,6 @@
 // src/App.jsx
+const api = import.meta.env.VITE_API_BASE_URL;
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";

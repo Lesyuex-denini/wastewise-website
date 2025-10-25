@@ -45,11 +45,17 @@ export default function Contact() {
             );
     };
 
-    const googleDriveLink = "https://drive.google.com/drive/folders/1FcTkcQ6FanxYnxG72vILc4PLvqRB2gCe?usp=sharing";
+    const apkLink = "/WasteWise_Beta-1.6.apk";
 
     const handleDownload = () => {
-        window.open(googleDriveLink, "_blank");
+        const link = document.createElement("a");
+        link.href = apkLink;
+        link.download = "WasteWise_Beta-1.6.apk";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     };
+
 
     return (
         <div className="w-full overflow-hidden">
