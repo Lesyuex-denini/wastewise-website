@@ -46,16 +46,17 @@ export default function Contact() {
             );
     };
 
-    const apkLink = "/WasteWise_Beta-1.6.apk";
+    const apkLink = "/WasteWise_Beta-1.7.apk";
 
     const handleDownload = () => {
         const link = document.createElement("a");
         link.href = apkLink;
-        link.download = "WasteWise_Beta-1.6.apk";
+        link.download = "WasteWise_Beta-1.7.apk";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
+
 
 
     return (
