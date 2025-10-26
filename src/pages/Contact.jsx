@@ -79,7 +79,6 @@ export default function Contact() {
                     }}
                 />
 
-                {/* === Left Text === */}
                 <motion.div
                     className="relative max-w-xl z-30 md:mr-12 text-center md:text-left"
                     initial={{ opacity: 0, y: 50 }}
@@ -87,7 +86,6 @@ export default function Contact() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    {/* Paper Layers */}
                     <div className="relative inline-block mb-8">
                         <div className="absolute inset-0 bg-[#BFD8B8] rotate-[-2.5deg] rounded-md shadow-lg opacity-90"></div>
                         <div className="absolute inset-0 bg-[#D8EFD3] rotate-[1.5deg] rounded-md shadow-md opacity-85"></div>
@@ -111,14 +109,13 @@ export default function Contact() {
                             }}
                         ></div>
 
-                        {/* === Animated Headline === */}
                         <motion.h1
                             className="relative rammetto-one-regular text-3xl sm:text-4xl md:text-5xl tracking-[2px] leading-snug text-[#145B18] px-6 py-5 md:px-10 md:py-8 z-10"
                             variants={{
                                 hidden: { opacity: 1 },
                                 visible: {
                                     opacity: 1,
-                                    transition: { staggerChildren: 1.09, delayChildren: 0.1 },
+                                    transition: { staggerChildren: 1.0, delayChildren: .1 },
                                 },
                             }}
                             initial="hidden"

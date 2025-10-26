@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import background from '../assets/background.jpg';
 import Reward from '../assets/Reward.jpg';
 import Steps from '../assets/Steps.jpg';
-import ContactBG from '../assets/ContactBG.jpg';
 import GenBG from '../assets/GenBG.jpg';
 import DownloadBG from '../assets/DownloadBG.jpg';
 import ComingSoon from '../assets/ComingSoon.mp4';
+import WasteWiseTutorial from '../assets/WasteWiseTutorial.mp4';
 
 import Img12 from '../assets/12.jpg';
 import Img13 from '../assets/13.jpg';
@@ -75,7 +75,6 @@ export default function Explore() {
                 style={{ backgroundImage: `url(${background})` }}
             >
                 <div className="explore-overlay" />
-                {/* Animate only the content */}
                 <motion.main
                     className="explore-content"
                     variants={slideLeft}
@@ -83,7 +82,6 @@ export default function Explore() {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    {/* Typewriter Title */}
                     <h1 className="rammetto-one-regular tracking-[10px] whitespace-pre-line">
                         {renderTextWithHighlight()}
                         {!isTypingDone && (
@@ -96,37 +94,66 @@ export default function Explore() {
 
             {/* --- TUTORIAL SECTION --- */}
             <motion.section
-                className="tutorials"
-                style={{ backgroundImage: `url(${GenBG})` }}
+                className="relative z-[-1] flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 py-20 px-6 md:px-20 bg-cover bg-center overflow-hidden mt-[-20px]"
+                style={{
+                    backgroundImage: `url(${GenBG})`,
+                    backgroundAttachment: "fixed",
+                }}
                 variants={staggerContainer}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
             >
+                <div className="absolute inset-0 bg-white/50 backdrop-blur-sm" />
+
+                <div className="absolute top-10 left-10 w-24 h-24 bg-yellow-100 rotate-[10deg] opacity-40 rounded-xl blur-md"></div>
+                <div className="absolute bottom-0 right-16 w-28 h-28 bg-green-200 rotate-[-12deg] opacity-40 rounded-2xl blur-md"></div>
+
                 {/* --- Left Video Card --- */}
                 <motion.div
-                    className="video-container"
+                    className="relative bg-white rounded-2xl shadow-2xl overflow-hidden transform rotate-[-2deg] border-[6px] border-white w-full md:w-[50%] max-w-[720px]"
                     initial={{ x: "-100%", opacity: 0 }}
                     whileInView={{
-                        x: ["-100%", "0%", "-5%", "0%"],
+                        x: ["-100%", "0%", "-3%", "0%"],
                         opacity: [0, 1, 1, 1],
                     }}
                     transition={{
-                        duration: 4.0,
+                        duration: 3.5,
                         ease: "easeInOut",
                         times: [0, 0.6, 0.8, 1],
                     }}
                     viewport={{ once: true }}
                 >
-                    <video src={ComingSoon} controls autoPlay loop muted />
+                    {/* Scrap tape effect */}
+                    <div className="absolute -top-4 left-[35%] w-24 h-6 bg-yellow-300/80 rotate-[4deg] shadow-md rounded-sm"></div>
+                    <div className="absolute -bottom-4 right-[35%] w-24 h-6 bg-green-300/80 rotate-[-4deg] shadow-md rounded-sm"></div>
+
+                    <div className="relative w-full aspect-[16/9] bg-gray-100">
+                        <video
+                            src={WasteWiseTutorial}
+                            controls
+                            autoPlay
+                            loop
+                            muted
+                            className="w-full h-full object-cover rounded-xl"
+                        />
+                    </div>
+
+                    {/* Subtle floating animation */}
+                    <motion.div
+                        className="absolute inset-0"
+                        animate={{ y: [0, -4, 0] }}
+                        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    />
                 </motion.div>
 
                 {/* --- Right Steps Card --- */}
                 <motion.div
-                    className="statcard-vertical"
+                    className="relative bg-white/90 rounded-2xl shadow-2xl transform rotate-[2deg] border-[6px] border-white w-full md:w-[50%] max-w-[720px] p-8 md:p-10 text-left bg-cover bg-center"
+                    style={{ backgroundImage: `url(${Steps})` }}
                     initial={{ x: "100%", opacity: 0 }}
                     whileInView={{
-                        x: ["100%", "0%", "5%", "0%"],
+                        x: ["100%", "0%", "3%", "0%"],
                         opacity: [0, 1, 1, 1],
                     }}
                     transition={{
@@ -136,24 +163,77 @@ export default function Explore() {
                     }}
                     viewport={{ once: true }}
                 >
-                    <div className="statcard-content" style={{ backgroundImage: `url(${Steps})` }}>
-                        <h2>Register or Log In</h2>
-                        <p>Access your dashboard through the WasteWise app.</p>
+                    <div className="absolute -top-3 left-[25%] w-24 h-6 bg-pink-300/80 rotate-[6deg] shadow-md rounded-sm"></div>
+                    <div className="absolute -bottom-3 right-[25%] w-24 h-6 bg-blue-300/80 rotate-[-6deg] shadow-md rounded-sm"></div>
 
-                        <h2>Join EcoQuests</h2>
-                        <p>Complete recycling challenges to earn points.</p>
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/60 rounded-2xl backdrop-blur-[1px]" />
 
-                        <h2>Scan at Outlet Partners</h2>
-                        <p>Have your collected materials verified.</p>
+                    <div className="relative z-10 text-gray-50">
+                        <motion.h2
+                            className="text-3xl md:text-4xl font-extrabold text-yellow-800 drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] mb-4"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                        >
+                        </motion.h2>
 
-                        <h2>Earn EcoPoints</h2>
-                        <p>Get rewarded for approved submissions.</p>
+                        <div className="space-y-6 text-lg md:text-xl leading-relaxed font-medium">
+                            <div>
+                                <h2 className="text-yellow-300 font-bold text-2xl mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Download and Register
+                                </h2>
+                                <p className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Scan the QR, download the app, and create your player account to get your unique Player QR code.
+                                </p>
+                            </div>
 
-                        <h2>Redeem Rewards</h2>
-                        <p>Exchange points for load, groceries, or gifts.</p>
+                            <div>
+                                <h2 className="text-yellow-300 font-bold text-2xl mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Explore the Home Page
+                                </h2>
+                                <p className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    View your EcoPoints, ongoing eco-quests, and check the leaderboard of top recyclers.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-yellow-300 font-bold text-2xl mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Join Eco-Quests
+                                </h2>
+                                <p className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Choose recycling missions, collect the required materials, and earn EcoPoints for every successful quest.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-yellow-300 font-bold text-2xl mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Submit Your Recyclables
+                                </h2>
+                                <p className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Bring your recyclables to the Barangay Hall and let the outlet verify them using your Player QR.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h2 className="text-yellow-300 font-bold text-2xl mb-1 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Redeem Rewards
+                                </h2>
+                                <p className="text-gray-100 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                                    Use your EcoPoints to claim real-life rewards through the app’s Marketplace section.
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
+                    <motion.div
+                        className="absolute inset-0"
+                        animate={{ y: [0, 3, 0] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    />
                 </motion.div>
+
             </motion.section>
+
 
 
             {/* --- REWARDS TITLE --- */}
@@ -307,7 +387,7 @@ export default function Explore() {
             >
                 {/* --- SUSTAINABILITY GOALS SECTION --- */}
                 <motion.section
-                    className="sustainability-section relative py-20 px-8 overflow-hidden"
+                    className="sustainability-section relative py-12 px-8 overflow-hidden"
                     variants={slideLeft}
                     initial="hidden"
                     whileInView="visible"
