@@ -5,12 +5,13 @@ import Reward from '../assets/Reward.jpg';
 import Steps from '../assets/Steps.jpg';
 import GenBG from '../assets/GenBG.jpg';
 import DownloadBG from '../assets/DownloadBG.jpg';
-import ComingSoon from '../assets/ComingSoon.mp4';
-import WasteWiseTutorial from '../assets/WasteWiseTutorial.mp4';
+
 
 import Img12 from '../assets/12.jpg';
 import Img13 from '../assets/13.jpg';
 import Img17 from '../assets/17.jpg';
+
+const WasteWiseTutorial = "/WastewiseTutorial.mp4";
 
 const slideLeft = {
     hidden: { opacity: 0, x: -80 },
